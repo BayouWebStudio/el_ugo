@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About &#x2014; Ugo | Tattoo Artist San Diego, California</title>
+  <meta name="description" content="I'm Ugo, a tattoo artist based in San Diego, California.">
+  <link rel="canonical" href="https://bayouwebstudio.github.io/el_ugo/about.html">
+  <meta property="og:title" content="About &#x2014; Ugo">
+  <meta property="og:description" content="I'm Ugo, a tattoo artist based in San Diego, California.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/BayouWebStudio/el_ugo/main/img/1.jpg">
+  <meta property="og:url" content="https://bayouwebstudio.github.io/el_ugo/about.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --black: #050508;
+      --charcoal: #0f0f14;
+      --gold: #C0C0C0;
+      --white: #f5f5f0;
+      --dim: #888;
+      --border: rgba(255,255,255,0.07);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(10,5,5,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-links a {
+      color: var(--dim);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .lang-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--dim);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--white); margin: 5px 0; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+    .mobile-menu {
+      display: none; position: fixed; top: 65px; left: 0; right: 0; z-index: 99;
+      background: var(--charcoal); padding: 24px 48px; border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; color: var(--white); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    /* FLOATING BOOK */
+    .book-float {
+      position: fixed; bottom: 32px; right: 32px; z-index: 200;
+      background: var(--gold); color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; padding: 14px 22px; border-radius: 2px;
+      box-shadow: 0 4px 24px rgba(192,192,192,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .book-float:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(192,192,192,0.5); }
+    /* FADE-UP ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    /* FOOTER */
+    footer {
+      background: var(--charcoal); padding: 48px 72px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; color: var(--dim); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: var(--dim); font-size: 0.72rem; }
+    /* SHARED */
+    .section-label { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400; line-height: 1.1; margin-bottom: 24px;
+    }
+    .btn-gold {
+      display: inline-block; background: var(--gold); color: #000;
+      text-decoration: none; font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase; padding: 16px 40px;
+      transition: opacity 0.2s;
+    }
+    .btn-gold:hover { opacity: 0.88; }
+    .btn-outline {
+      display: inline-block; border: 1px solid var(--border); color: var(--white);
+      text-decoration: none; font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase; padding: 14px 36px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav { padding: 18px 24px; } .nav-links { display: none; } .hamburger { display: block; }
+      footer { flex-direction: column; gap: 24px; padding: 40px 24px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      footer { padding: 32px 20px; }
+    }
+  
+    .page-hero { padding: 160px 72px 80px; background: var(--charcoal); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background-image: url('img/1.jpg'); background-size: cover; background-position: center; filter: brightness(0.25); }
+    .page-hero-content { position: relative; z-index: 2; }
+    .page-eyebrow { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 300; line-height: 1; }
+    .about-body { padding: 96px 72px; max-width: 1200px; margin: 0 auto; }
+    .about-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 80px; align-items: start; }
+    .bio-section p { color: var(--dim); line-height: 1.9; margin-bottom: 28px; font-size: 1rem; }
+    .stats-section { position: sticky; top: 100px; }
+    .stat-card { border: 1px solid var(--border); padding: 32px; margin-bottom: 16px; text-align: center; }
+    .stat-big { font-family: 'Playfair Display', Georgia, serif; font-size: 3rem; font-weight: 300; color: var(--gold); }
+    .stat-small { font-size: 0.72rem; color: var(--dim); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 8px; }
+    .specialty-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+    .tag { border: 1px solid var(--border); color: var(--dim); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 16px; }
+    @media (max-width: 900px) {
+      .page-hero { padding: 120px 24px 60px; }
+      .about-body { padding: 60px 24px; }
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .stats-section { position: static; }
+    }
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <a href="./index.html" class="nav-logo">Ugo</a>
+    <ul class="nav-links">
+      <li><a href="./index.html" 
+        data-en="Home" data-es="Home">Home</a></li>
+      <li><a href="./about.html" class="active"
+        data-en="About" data-es="Sobre M&#xed;">About</a></li>
+      <li><a href="./tattoos.html" 
+        data-en="Tattoos" data-es="Tatuajes">Tattoos</a></li>
+      <li><a href="./booking.html" 
+        data-en="Booking" data-es="Reservaciones">Booking</a></li>
+      <li><a href="./testimonials.html" 
+        data-en="Reviews" data-es="Testimonios">Reviews</a></li>
+      <li><button class="lang-toggle" onclick="toggleLang()">ES</button></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="./index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a href="./about.html" data-en="About" data-es="Sobre M&#xed;">About</a>
+    <a href="./tattoos.html" data-en="Tattoos" data-es="Tatuajes">Tattoos</a>
+    <a href="./booking.html" data-en="Booking" data-es="Reservaciones">Booking</a>
+    <a href="./testimonials.html" data-en="Reviews" data-es="Testimonios">Reviews</a>
+  </div>
+  <a href="./booking.html" class="book-float">Book</a>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content">
+      <p class="page-eyebrow fade-up" data-en="About" data-es="Sobre M&#xed;">About</p>
+      <h1 class="fade-up">Ugo</h1>
+    </div>
+  </section>
+
+  <div class="about-body">
+    <div class="about-layout">
+      <div class="bio-section">
+        <p class="fade-up">I'm Ugo, a tattoo artist based in San Diego, California.</p>
+        <p class="fade-up">My work reflects a deep passion for art and skin as canvas.</p>
+        <p class="fade-up">Every piece is unique, created with intention and care.</p>
+        <p class="fade-up">Get in touch to start your project.</p>
+        <div class="specialty-tags fade-up">
+          <span class="tag">Blackwork</span>
+          <span class="tag">San Diego, California</span>
+          <span class="tag" data-en="Tattoo Artist" data-es="Artista de Tatuaje">Tattoo Artist</span>
+          <span class="tag" data-en="Custom Work" data-es="Trabajo Personalizado">Custom Work</span>
+        </div>
+        <a href="./booking.html" class="btn-gold" style="margin-top:48px;" data-en="Book a Session" data-es="Reservar Sesi&#xf3;n">Book a Session</a>
+      </div>
+      <div class="stats-section">
+        <div class="stat-card fade-up">
+          <div class="stat-big">1+</div>
+          <div class="stat-small" data-en="Years of Experience" data-es="A&#xf1;os de Experiencia">Years of Experience</div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-big">20.7K</div>
+          <div class="stat-small" data-en="Instagram Followers" data-es="Seguidores en Instagram">Instagram Followers</div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-big">Blackwork</div>
+          <div class="stat-small" data-en="Primary Style" data-es="Estilo Principal">Primary Style</div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-big">San Diego, California</div>
+          <div class="stat-small" data-en="Base City" data-es="Ciudad Base">Base City</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="footer-logo">Ugo</div>
+    <div class="footer-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./tattoos.html">Tattoos</a>
+      <a href="./booking.html">Booking</a>
+      <a href="https://www.instagram.com/el_ugo" target="_blank" rel="noopener">Instagram</a>
+      
+    </div>
+    <div class="footer-copy">&#xa9; 2026 Ugo</div>
+  </footer>
+  
+  <script>
+    const LANG = { default: 'en', current: 'en' };
+    function toggleLang() {
+      LANG.current = LANG.current === 'es' ? 'en' : 'es';
+      document.querySelectorAll('[data-es][data-en]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + LANG.current) || el.textContent;
+      });
+      document.querySelectorAll('[data-es-href][data-en-href]').forEach(el => {
+        el.setAttribute('href', el.getAttribute('data-' + LANG.current + '-href') || el.getAttribute('href'));
+      });
+    }
+    // Apply language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('[data-es][data-en]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + LANG.current) || el.textContent;
+      });
+    });
+
+    // Fade-up on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
